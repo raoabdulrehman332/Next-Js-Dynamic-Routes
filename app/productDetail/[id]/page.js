@@ -1,7 +1,21 @@
 
-"use client"
+// "use client"
+
+export async function generateMetadata({ params  }) {
+    // read route params
+    const id = params.id 
+    // fetch data
+    const product = await fetch(`https://dummyjson.com/products/${id}`).then((res) => res.json())   
+    return {
+      title: product.title,
+      
+    }
+  }
+   
+
 
 export default async function ProductDetail({ params }){
+
 
     let id = params
     
